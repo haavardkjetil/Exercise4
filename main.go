@@ -13,5 +13,5 @@ func receive(&message ) {
 }
 
 func send(){
-	//
+	//some functions...
 }
