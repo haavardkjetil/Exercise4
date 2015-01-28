@@ -11,3 +11,7 @@ type
 func receive(&message ) {
 	
 }
+
+func send(){
+	//
+}
