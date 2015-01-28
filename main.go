@@ -1,12 +1,15 @@
 
 package networkCommunication
 
-import(
-"net"
-"fmt"
+import (
+	"fmt"
+	"net"
+	"os"
+	"strconv"
 )
 
-type 
+const bcast = "129.241.187.157"
+const udpPort = "2876"
 
 func receive(&message ) {
 	
