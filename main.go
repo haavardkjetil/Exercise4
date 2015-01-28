@@ -6,3 +6,8 @@ import(
 "fmt"
 )
 
+type 
+
+func receive(&message ) {
+	
+}
