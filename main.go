@@ -1,34 +1,20 @@
 
-package networkCommunication
+package main
 
 
 import(
-"net"
-"fmt"
-"bytes"
-"encoding/gob"
-"log"
+"Network"
+"time"
 )
 
-const bcast = "129.241.187.157"
-const udpPort = "2876"
 
-
-type Message struct {
-	Type string
-	Postition int
-	Order int
-}
-
-func receive(message *Message) {
-	var network bytes.Buffer
-	unpacker := gob.NewDecoder(&network)
-	err = unpacker.Decode(message)
-	if err != nil {
-        log.Fatal("decode error:", err)  //TODO: Fault acceptance
-    }
-}
-
-func send(){
-	//some functions...
+func main() {
+	transmitChannel := make(chan Network.Packet,5)
+	go Network.Send(transmitChannel)
+	for i := 0; i < 5; i++ {
+		transmitChannel <- Network.Packet{"This is struct number ", i, 0}
+		time.Sleep(100*time.Millisecond)
+	}
+	transmitChannel <- Network.Packet{"Terminate", 0, 0}
+	time.Sleep(100*time.Millisecond)
 }
