@@ -1,5 +1,4 @@
-
-package main
+package network
 
 import(
 "net"
@@ -60,20 +59,4 @@ func receiveMessage(transmitChannel chan Message) {
 
 
 
-}
-
-
-func send(){
-	//
-}
-
-
-func main(){
-	transmitChannel := make(chan Message,5)
-	go receiveMessage(transmitChannel)
-	for {
-		message := <- transmitChannel
-		fmt.Println(message.Type)
-		fmt.Println(message.Postition)
-	}
 }
